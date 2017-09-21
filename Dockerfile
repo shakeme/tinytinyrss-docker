@@ -5,7 +5,8 @@ MAINTAINER Robert Schneider <shakemedev@gmail.com>
 ARG TAG=17.4
 
 RUN apt-get update && apt-get install --assume-yes \
-    rsync
+        rsync \
+    && rm -rf /var/lib/apt/lists/*
 
 ADD https://git.tt-rss.org/git/tt-rss/archive/${TAG}.tar.gz /ttr.tar.gz
 
