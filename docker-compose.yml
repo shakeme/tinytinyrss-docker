@@ -1,0 +1,26 @@
+version: "3"
+
+services:
+  app:
+    image: shakeme/tiny-tiny-rss
+    ports:
+      - "80:80"
+    volumes:
+      - "data_app:/var/www/html"
+
+  db:
+    image: mariadb
+    environment:
+      - MYSQL_RANDOM_ROOT_PASSWORD=yes
+      - MYSQL_DATABASE=ttr
+      - MYSQL_USER=ttr
+      - MYSQL_PASSWORD=YOUR_SUPER_SECRET_PASSWORT_HERE
+    volumes:
+      - "data_db:/var/lib/mysql"
+
+volumes:
+  data_app:
+  data_db:
+
+# vim: ai expandtab ts=2 sts=2 sw=2
+
